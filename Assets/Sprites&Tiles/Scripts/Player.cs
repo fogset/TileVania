@@ -23,5 +23,15 @@ public class Player : MonoBehaviour
         float controlThrow = Input.GetAxis("Horizontal");
         Vector2 playerVeloctiy = new Vector2(controlThrow* runSpeed, myRigidBody.velocity.y);
         myRigidBody.velocity = playerVeloctiy;
+        FlipSprite();
+    }
+
+    private void FlipSprite()
+    {
+        bool playerHasHorizontalSpeed = Mathf.Abs(myRigidBody.velocity.x) > Mathf.Epsilon;
+        if (playerHasHorizontalSpeed)
+        {
+            transform.localScale = new Vector2(Mathf.Sign(myRigidBody.velocity.x), transform.localScale.y);
+        }
     }
 }
