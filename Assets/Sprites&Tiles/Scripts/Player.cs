@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    Rigidbody2D rigidbody;
+    [SerializeField] float runSpeed = 5f;
+    Rigidbody2D myRigidBody;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,12 +15,13 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Run();
     }
 
     private void Run()
     {
         float controlThrow = Input.GetAxis("Horizontal");
-        Vector2 playerVeloctiy = new Vector2(controlThrow, myRigidBody.y);
+        Vector2 playerVeloctiy = new Vector2(controlThrow* runSpeed, myRigidBody.velocity.y);
+        myRigidBody.velocity = playerVeloctiy;
     }
 }
