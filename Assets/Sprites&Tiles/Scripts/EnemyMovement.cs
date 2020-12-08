@@ -33,15 +33,11 @@ public class EnemyMovement : MonoBehaviour
         return transform.localScale.x > 0;
     }
 
-    void turnAround()
-    {
-        if (myFeetCollider2D.IsTouchingLayers(LayerMask.GetMask("Ground")))
-        { moveSpeed = -10; }
-    }
+    
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         transform.localScale = new Vector2(-Mathf.Sign(myRigidbody2D.velocity.x), 1f);
-        Debug.Log("hit something");
+        
     }
 }
