@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] float climSpeed = 5f;
 
     // State
-    bool isLive = true;
+    bool isAlive = true;
 
     //Cached component references
     Rigidbody2D myRigidBody;
@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!isAlive) { return; }
         Run();
         Jump();
         ClimbLadder();
@@ -75,6 +76,15 @@ public class Player : MonoBehaviour
         myAnimator.SetBool("Climbing", playerIsClimbing);
 
         myRigidBody.gravityScale = 0;
+    }
+
+    private void Die()
+    {
+        if (myBodyCollider2D.IsTouchingLayers(LayerMask.GetMask("Enemy")))
+        {
+            isAlive = false;
+
+        }
     }
 
     private void FlipSprite()
