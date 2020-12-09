@@ -14,12 +14,9 @@ public class Menu : MonoBehaviour
         player.SetActive(false);
     }
 
-    public void StartFirstLevel()
+    public void ReadyToStart()
     {
         player.SetActive(true);
-        //SceneManager.LoadScene(0);
         startButton.SetActive(false);
     }
-    
-
 }
