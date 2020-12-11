@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickUpSound: {fileID: 8300000, guid: 10af83c78fa8a0d419eb6075c0945fdf, type: 3}
-  pickUpAmount: 50
+  coinPickUpAmount: 50
 --- !u!82 &1774049434866676456
 AudioSource:
   m_ObjectHideFlags: 0
